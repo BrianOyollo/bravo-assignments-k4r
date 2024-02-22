@@ -6,7 +6,8 @@
 /raw_labeled_data.xlsx
 /raw_xml_data.xlsx
 /main.ipynb
-/authentication
+/authentication/config.yaml
+/authentication/__pycache__
 /trials.py
 /check.json
 /pages/trials.py
