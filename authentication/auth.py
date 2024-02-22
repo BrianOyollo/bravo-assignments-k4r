@@ -26,7 +26,7 @@ def authenticate_user():
             }
         },
         "cookie": {
-            "expiry_days": cookie_expiry_days,
+            "expiry_days": int(cookie_expiry_days),
             "key": cookie_key,
             "name": cookie_name
         }
