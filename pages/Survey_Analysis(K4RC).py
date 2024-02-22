@@ -45,23 +45,34 @@ if authentication_status:
             '11. Questions on Triple Nexus',
             '12. QUESTIONS ON CROSS CUTTING ISSUES ', 
         ]
+    option = st.selectbox('Survey questions', group_names)
+    
 
     @st.cache_data(show_spinner=':blue[Generating charts...]')
     def generate_chart(col):
         chart_data = df[col].value_counts()
-        chart = px.bar(chart_data, color=chart_data.index, title=col.split("/")[1], text_auto=True)
+        chart = px.bar(chart_data, color=chart_data.index, text_auto=True, width=500, height=400)
         chart.update_layout(
             showlegend=False,
             xaxis_title="",
         )
         return chart
     
-    for name in group_names:
-        with st.expander(name, expanded=False):
-            for col in df.columns:
-                if name in col:
-                    chart = generate_chart(col)
-                    st.plotly_chart(chart)
+    
+    for column in df.columns:
+        if option in column:
+            chart = generate_chart(column)
+            with st.container(border=True):
+                st.write(column.split("/")[1])
+                c1,c2,c3 = st.columns([1,2,1])
+                c2.plotly_chart(chart)
+                
+    # for name in group_names:
+   
+        # for col in df.columns:
+        #     if name in col:
+        #         chart = generate_chart(col)
+        #         st.plotly_chart(chart)
 
 elif st.session_state["authentication_status"] == False:
     st.error('Username/password is incorrect')
