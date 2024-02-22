@@ -38,4 +38,5 @@ def authenticate_user():
             config['cookie']['key'],
             config['cookie']['expiry_days'],
         )
+    
     return authenticator
