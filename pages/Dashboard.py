@@ -14,15 +14,6 @@ if authentication_status:
     with c2:
         authenticator.logout('Logout', 'main')
 
-    @st.cache_data
-    def load_data():
-        df = pd.read_excel('cleaned_data.xlsx')
-        return df
-
-    data = load_data()
-    if 'survey_data' not in st.session_state:
-        st.session_state['survey_data'] = data
-
     st.title(":green[DashBoard]")
 
 elif st.session_state["authentication_status"] == False:
