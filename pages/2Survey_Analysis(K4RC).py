@@ -75,7 +75,7 @@ if authentication_status:
     @st.cache_data(show_spinner=':blue[Generating charts...]')
     def generate_chart2(chart_data, column):
         chart = px.bar(chart_data, x='Administrative Details/County', y='count', color=column, barmode='group', text_auto=True, width=500, height=400)
-        chart.update_layout(showlegend=True, legend_title='', xaxis_title="",plot_bgcolor='whitesmoke', font_color='white', bargap=0.3)
+        chart.update_layout(showlegend=True, legend_title='', xaxis_title="",plot_bgcolor=' #f0f3f4 ', font_color='white', bargap=0.3)
         return chart
 
     for column in df.columns:
