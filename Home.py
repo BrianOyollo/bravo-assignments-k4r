@@ -16,7 +16,7 @@ name, authentication_status, username = authenticator.login()
 if authentication_status:
     c1,c2 = st.columns([.9,0.1])
     with c2:
-        authenticator.logout('Logout', 'main')
+        authenticator.logout('Logout', 'sidebar')
     st.title(":green[Kenya4Resilience]")
     st.write("Endline Evaluation on the Kenya4Resilience (K4R) Community of Practice (CoP) and Consortium projects as per agreed terms.")
 

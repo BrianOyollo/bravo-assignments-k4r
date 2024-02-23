@@ -34,6 +34,8 @@ if authentication_status:
     @st.cache_data(show_spinner=':blue[Loading survey data...]')
     def load_cleaned_data():
         raw_data = utils.read_survey_data(cleaned_data_key)
+        if 'cleaned_data' not in st.session_state:
+            st.session_state['cleaned_data'] = raw_data
         return raw_data
     
     raw_data=load_raw_data()
